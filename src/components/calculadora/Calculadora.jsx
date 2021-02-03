@@ -5,6 +5,8 @@ function Calculadora() {
   const [resultado, setResultado] = useState({
     comFaleMais: 0,
     semFaleMais: 0,
+    textoErro: " ",
+    validaErro: false,
   });
   return <Form onSubmitForm={onSubmitForm} resultado={resultado} />;
   function onSubmitForm(dados) {
@@ -16,8 +18,6 @@ function Calculadora() {
       .catch((error) => {
         console.log(error);
       });
-    //console.log(response);
-    //setResultado(response);
   }
 }
 export default Calculadora;

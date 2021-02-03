@@ -13,6 +13,7 @@ import {
   Input,
   InputLabel,
 } from "@material-ui/core";
+import CurrencyTextField from "@unicef/material-ui-currency-textfield";
 
 function Form({ onSubmitForm, resultado }) {
   const [origem, setOrigem] = useState("011");
@@ -39,6 +40,7 @@ function Form({ onSubmitForm, resultado }) {
             <RadioGroup
               aria-label="origem"
               name="origem"
+              id="origem"
               value={origem}
               onChange={(event) => {
                 setOrigem(event.target.value);
@@ -57,6 +59,7 @@ function Form({ onSubmitForm, resultado }) {
             <RadioGroup
               aria-label="destino"
               name="destino"
+              id="destino"
               value={destino}
               onChange={(event) => {
                 setDestino(event.target.value);
@@ -75,6 +78,7 @@ function Form({ onSubmitForm, resultado }) {
             <RadioGroup
               aria-label="plano"
               name="plano"
+              id="plano"
               value={plano}
               onChange={(event) => {
                 setPlano(event.target.value);
@@ -115,31 +119,41 @@ function Form({ onSubmitForm, resultado }) {
           />
         </Grid>
         <Grid item xs={4}>
-          <TextField
-            value={resultado.comFaleMais.toFixed(2)}
-            id="tempo"
-            variant="outlined"
+          <CurrencyTextField
+            label="Com Fale Mais"
+            variant="standard"
+            id="comFaleMais"
+            value={resultado.comFaleMais}
+            currencySymbol="R$"
+            //minimumValue="0"
+            outputFormat="string"
+            decimalCharacter=","
+            digitGroupSeparator="."
             margin="normal"
-            color="secondary"
-            type="number"
+            error={resultado.validaErro}
+            helperText={resultado.textoErro}
             disabled
           />
-          <InputLabel>Com Fale Mais</InputLabel>
         </Grid>
         <Grid item xs={4}>
-          <TextField
-            value={resultado.semFaleMais.toFixed(2)}
-            id="tempo"
-            variant="outlined"
+          <CurrencyTextField
+            label="Sem Fale Mais"
+            variant="standard"
+            id="semFaleMais"
+            value={resultado.semFaleMais}
+            currencySymbol="R$"
+            //minimumValue="0"
+            outputFormat="string"
+            decimalCharacter=","
+            digitGroupSeparator="."
             margin="normal"
-            color="secondary"
-            type="number"
+            error={resultado.validaErro}
+            helperText={resultado.textoErro}
             disabled
           />
-          <InputLabel>Sem Fale Mais</InputLabel>
         </Grid>
       </Grid>
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" color="primary" id="submit">
         Calcular
       </Button>
     </form>

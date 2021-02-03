@@ -131,6 +131,8 @@ export const calculaPlano = async (dados) => {
   return {
     comFaleMais: "-",
     semFaleMais: "-",
+    textoErro: "Não tem cobertura",
+    validaErro: true,
   };
 };
 
