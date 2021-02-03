@@ -13,7 +13,6 @@ import {
   Input,
   InputLabel,
 } from "@material-ui/core";
-import Table from "../calculadora/Table";
 
 function Form({ onSubmitForm, resultado }) {
   const [origem, setOrigem] = useState("011");
@@ -124,7 +123,6 @@ function Form({ onSubmitForm, resultado }) {
             id="tempo"
             variant="outlined"
             margin="normal"
-            type="number"
             color="secondary"
             disabled
           />
@@ -139,7 +137,6 @@ function Form({ onSubmitForm, resultado }) {
             id="tempo"
             variant="outlined"
             margin="normal"
-            type="number"
             color="secondary"
             disabled
           />

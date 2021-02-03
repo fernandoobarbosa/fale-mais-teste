@@ -1,17 +1,23 @@
 import React, { Component, useEffect, useState } from "react";
 import Form from "../calculadora/Form";
-import { createUser } from "../../services/calcula";
+import { calculaPlano } from "../../services/calcula";
 function Calculadora() {
-  const [resultado, setResultado] = useState({});
+  const [resultado, setResultado] = useState({
+    comFaleMais: " ",
+    semFaleMais: " ",
+  });
   return <Form onSubmitForm={onSubmitForm} resultado={resultado} />;
   function onSubmitForm(dados) {
-    console.log(dados.tempo);
-    const tempo = dados.tempo;
-    let resultados = {
-      comFaleMais: tempo * 1.21,
-      semFaleMais: tempo * 1.21,
-    };
-    setResultado(resultados);
+    calculaPlano(dados)
+      .then((response) => {
+        setResultado(response);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    //console.log(response);
+    //setResultado(response);
   }
 }
 export default Calculadora;
