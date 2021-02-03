@@ -13,7 +13,7 @@ No diretório do projeto execute:
 
 ### `npm install`
 
-Instala as dependências do projeto
+Serão instaladas as dependências do projeto
 
 ### `npm start`
 
@@ -25,9 +25,9 @@ Esse comando roda os testes no sistema, é necessário que a aplicação esteja 
 
 ### `Como utilizar`
 
-Selecione uma origem, um destino, um plano e um valor, após isso clique no botão calcular para saber o resultado do valor da sua conta com e sem o plano.
+Selecione uma origem, um destino, um plano e um valor, após isso clique no botão calcular para saber o resultado do valor da sua conta com e sem o plano
 
-Algumas regiões não tem cobertura ao plano entre si, mas o sistema irá alertar caso isso ocorra.
+Algumas regiões não tem cobertura ao plano entre si, mas o sistema irá alertar caso isso ocorra
 
 ### Autor
 Fernando Luiz De Carvalho Barbosa
