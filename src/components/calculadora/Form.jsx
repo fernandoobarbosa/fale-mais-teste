@@ -1,103 +1,99 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   TextField,
   Button,
-  Switch,
   FormControlLabel,
   FormControl,
   FormLabel,
   RadioGroup,
   Radio,
-  Grid,
-  Tab,
-  Input,
-  InputLabel,
-} from "@material-ui/core";
-import CurrencyTextField from "@unicef/material-ui-currency-textfield";
+  Grid
+} from '@material-ui/core'
+import CurrencyTextField from '@unicef/material-ui-currency-textfield'
 
-function Form({ onSubmitForm, resultado }) {
-  const [origem, setOrigem] = useState("011");
-  const [destino, setDestino] = useState("011");
-  const [tempo, setTempo] = useState("");
-  const [plano, setPlano] = useState("FaleMais 30");
+function Form ({ onSubmitForm, resultado, erros, resetError }) {
+  const [origem, setOrigem] = useState('011')
+  const [destino, setDestino] = useState('011')
+  const [tempo, setTempo] = useState('')
+  const [plano, setPlano] = useState('FaleMais 30')
   return (
     <form
       onSubmit={(event) => {
-        event.preventDefault();
-        let dados = {
+        event.preventDefault()
+        const dados = {
           origem: origem,
           destino: destino,
           plano: plano,
-          tempo: tempo,
-        };
-        onSubmitForm(dados);
+          tempo: tempo
+        }
+        onSubmitForm(dados)
       }}
     >
       <Grid container spacing={3}>
         <Grid item xs={4}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Origem</FormLabel>
+          <FormControl component='fieldset'>
+            <FormLabel component='legend'>Origem</FormLabel>
             <RadioGroup
-              aria-label="origem"
-              name="origem"
-              id="origem"
+              aria-label='origem'
+              name='origem'
+              id='origem'
               value={origem}
               onChange={(event) => {
-                setOrigem(event.target.value);
+                setOrigem(event.target.value)
               }}
             >
-              <FormControlLabel value="011" control={<Radio />} label="011" />
-              <FormControlLabel value="016" control={<Radio />} label="016" />
-              <FormControlLabel value="017" control={<Radio />} label="017" />
-              <FormControlLabel value="018" control={<Radio />} label="018" />
+              <FormControlLabel value='011' control={<Radio />} label='011' />
+              <FormControlLabel value='016' control={<Radio />} label='016' />
+              <FormControlLabel value='017' control={<Radio />} label='017' />
+              <FormControlLabel value='018' control={<Radio />} label='018' />
             </RadioGroup>
           </FormControl>
         </Grid>
         <Grid item xs={4}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Destino</FormLabel>
+          <FormControl component='fieldset'>
+            <FormLabel component='legend'>Destino</FormLabel>
             <RadioGroup
-              aria-label="destino"
-              name="destino"
-              id="destino"
+              aria-label='destino'
+              name='destino'
+              id='destino'
               value={destino}
               onChange={(event) => {
-                setDestino(event.target.value);
+                setDestino(event.target.value)
               }}
             >
-              <FormControlLabel value="011" control={<Radio />} label="011" />
-              <FormControlLabel value="016" control={<Radio />} label="016" />
-              <FormControlLabel value="017" control={<Radio />} label="017" />
-              <FormControlLabel value="018" control={<Radio />} label="018" />
+              <FormControlLabel value='011' control={<Radio />} label='011' />
+              <FormControlLabel value='016' control={<Radio />} label='016' />
+              <FormControlLabel value='017' control={<Radio />} label='017' />
+              <FormControlLabel value='018' control={<Radio />} label='018' />
             </RadioGroup>
           </FormControl>
         </Grid>
         <Grid item xs={4}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Plano</FormLabel>
+          <FormControl component='fieldset'>
+            <FormLabel component='legend'>Plano</FormLabel>
             <RadioGroup
-              aria-label="plano"
-              name="plano"
-              id="plano"
+              aria-label='plano'
+              name='plano'
+              id='plano'
               value={plano}
               onChange={(event) => {
-                setPlano(event.target.value);
+                setPlano(event.target.value)
               }}
             >
               <FormControlLabel
-                value="FaleMais 30"
+                value='FaleMais 30'
                 control={<Radio />}
-                label="FaleMais 30"
+                label='FaleMais 30'
               />
               <FormControlLabel
-                value="FaleMais 60"
+                value='FaleMais 60'
                 control={<Radio />}
-                label="FaleMais 60"
+                label='FaleMais 60'
               />
               <FormControlLabel
-                value="FaleMais 120"
+                value='FaleMais 120'
                 control={<Radio />}
-                label="FaleMais 120"
+                label='FaleMais 120'
               />
             </RadioGroup>
           </FormControl>
@@ -108,56 +104,55 @@ function Form({ onSubmitForm, resultado }) {
           <TextField
             value={tempo}
             onChange={(event) => {
-              setTempo(event.target.value);
+              setTempo(event.target.value)
             }}
-            id="tempo"
-            label="Tempo em minutos"
-            variant="outlined"
-            margin="normal"
-            type="number"
+            id='tempo'
+            label='Tempo em minutos'
+            variant='outlined'
+            margin='normal'
+            type='number'
+            onBlur={resetError}
             required
           />
         </Grid>
         <Grid item xs={4}>
           <CurrencyTextField
-            label="Com Fale Mais"
-            variant="standard"
-            id="comFaleMais"
+            label='Com Fale Mais'
+            variant='standard'
+            id='comFaleMais'
             value={resultado.comFaleMais}
-            currencySymbol="R$"
-            //minimumValue="0"
-            outputFormat="string"
-            decimalCharacter=","
-            digitGroupSeparator="."
-            margin="normal"
-            error={resultado.validaErro}
-            helperText={resultado.textoErro}
+            currencySymbol='R$'
+            outputFormat='string'
+            decimalCharacter=','
+            digitGroupSeparator='.'
+            margin='normal'
+            error={erros.valida}
+            helperText={erros.texto}
             disabled
           />
         </Grid>
         <Grid item xs={4}>
           <CurrencyTextField
-            label="Sem Fale Mais"
-            variant="standard"
-            id="semFaleMais"
+            label='Sem Fale Mais'
+            variant='standard'
+            id='semFaleMais'
             value={resultado.semFaleMais}
-            currencySymbol="R$"
-            //minimumValue="0"
-            outputFormat="string"
-            decimalCharacter=","
-            digitGroupSeparator="."
-            margin="normal"
-            error={resultado.validaErro}
-            helperText={resultado.textoErro}
+            currencySymbol='R$'
+            outputFormat='string'
+            decimalCharacter=','
+            digitGroupSeparator='.'
+            margin='normal'
+            error={erros.valida}
+            helperText={erros.texto}
             disabled
           />
         </Grid>
       </Grid>
-      <Button type="submit" variant="contained" color="primary" id="submit">
+      <Button type='submit' variant='contained' color='primary' id='submit'>
         Calcular
       </Button>
     </form>
-  );
+  )
 }
 
-export default Form;
+export default Form
