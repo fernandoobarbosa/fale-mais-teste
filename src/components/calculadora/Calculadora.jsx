@@ -3,8 +3,8 @@ import Form from "../calculadora/Form";
 import { calculaPlano } from "../../services/calcula";
 function Calculadora() {
   const [resultado, setResultado] = useState({
-    comFaleMais: " ",
-    semFaleMais: " ",
+    comFaleMais: 0,
+    semFaleMais: 0,
   });
   return <Form onSubmitForm={onSubmitForm} resultado={resultado} />;
   function onSubmitForm(dados) {

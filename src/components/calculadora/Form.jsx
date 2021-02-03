@@ -116,28 +116,24 @@ function Form({ onSubmitForm, resultado }) {
         </Grid>
         <Grid item xs={4}>
           <TextField
-            value={resultado.comFaleMais}
-            onChange={(event) => {
-              setTempo(event.target.value);
-            }}
+            value={resultado.comFaleMais.toFixed(2)}
             id="tempo"
             variant="outlined"
             margin="normal"
             color="secondary"
+            type="number"
             disabled
           />
           <InputLabel>Com Fale Mais</InputLabel>
         </Grid>
         <Grid item xs={4}>
           <TextField
-            value={resultado.semFaleMais}
-            onChange={(event) => {
-              setTempo(event.target.value);
-            }}
+            value={resultado.semFaleMais.toFixed(2)}
             id="tempo"
             variant="outlined"
             margin="normal"
             color="secondary"
+            type="number"
             disabled
           />
           <InputLabel>Sem Fale Mais</InputLabel>
