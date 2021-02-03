@@ -9,15 +9,6 @@ Este projeto tem o intuito de calcular a conta de telefone com e sem o plano Fal
 
 No diretório do projeto execute:
 
-=======
-Este projeto tem o intuito de calcular a conta de telefone com e sem o plano Fale Mais
-
-## Requirimentos
-
--NodeJs 14.5.1
-
-No diretório do projeto execute:
-
 ### `npm install`
 
 Instala as dependências do projeto
@@ -28,7 +19,7 @@ A aplicação estará rodando em http://localhost:3000
 
 ### `npx cypress run`
 
-Esse comando roda os testes no sistema, é necessário que a aplicação esteja rodando em http://localhost:3000/_
+Esse comando roda os testes no sistema, é necessário que a aplicação esteja rodando em http://localhost:3000
 
 ### `Instruções`
 
@@ -38,8 +29,5 @@ Algumas regiões não tem cobertura ao plano entre si, mas o sistema irá alerta
 
 ### Autor
 Fernando Luiz De Carvalho Barbosa
-=======
-Roda a aplicação localmente
-Abra http://localhost:3000 no navegador para visualizar a aplicação
 
 
