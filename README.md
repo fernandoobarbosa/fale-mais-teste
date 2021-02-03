@@ -1,5 +1,3 @@
-##Projeto Fale Mais 
-
 Este projeto tem o intuito de calcular a conta de telefone com e sem o plano Fale Mais
 
 ## Requirimentos
